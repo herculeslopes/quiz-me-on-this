@@ -1,5 +1,6 @@
 {
   "name": "quiz-me-on-this",
+  "homepage": "https://herculeslopes.github.io/quiz-me-on-this/",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,7 +10,9 @@
     "test": "vitest run",
     "lint": "eslint",
     "format": "prettier",
-    "check": "prettier --write . && eslint --fix"
+    "check": "prettier --write . && eslint --fix",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
@@ -21,6 +24,7 @@
     "@tanstack/router-plugin": "^1.132.0",
     "axios": "^1.13.4",
     "clsx": "^2.1.1",
+    "gh-pages": "^6.3.0",
     "lucide-react": "^0.545.0",
     "motion": "^12.33.0",
     "nanoid": "^5.1.6",
