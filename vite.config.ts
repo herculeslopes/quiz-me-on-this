@@ -9,7 +9,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/quiz-me-on-this/',
+  base: process.env.NODE_ENV === 'production' ? '/quiz-me-on-this/' : '/',
   plugins: [
     devtools(),
     tanstackRouter({
@@ -24,13 +24,4 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'vendor': ['canvas-confetti']
-        }
-      }
-    }
-  }
 })
