@@ -39,11 +39,6 @@ jobs:
         with:
           path: './dist'
       
-      - name: create env file
-        run: |
-          touch .env
-          echo NODE_ENV=production >> .env
-
   deploy:
     needs: build
     environment:

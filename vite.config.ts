@@ -9,7 +9,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/quiz-me-on-this/' : '/',
+  base: '/quiz-me-on-this/',
   plugins: [
     devtools(),
     tanstackRouter({
