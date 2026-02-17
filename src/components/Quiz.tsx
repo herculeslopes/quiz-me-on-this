@@ -11,8 +11,8 @@ export default function Quiz() {
   if (quizContext == null)
     return <LoadingSpinner />;
 
-  const [questions, _setQuestions] = quizContext.questionsState;
-  const [current, _setCurrent] = quizContext.currentState;
+  const [questions, setQuestions] = quizContext.questionsState;
+  const [current, setCurrent] = quizContext.currentState;
   const correctAnswers = quizContext.correctAnswers;
   const questionsAnswered = quizContext.questionsAnswered;
   const previousQuestion = quizContext.previousQuestion;

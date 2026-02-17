@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import Question from '@/components/Question'
 import URLField from '@/components/URLField'
 import { useContext, useEffect, useMemo, useState, type ChangeEvent, type SubmitEvent } from 'react'
 import n8nAPI from '@/clients/n8n-client'
@@ -7,7 +8,7 @@ import { nanoid } from 'nanoid'
 import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 import clsx from 'clsx'
 import Button from '@/components/Button'
-import { motion } from 'motion/react';
+import { motion, number } from 'motion/react';
 import LoadingSpinner from '@/components/LoadingSpinner'
 import Leaderboard from '@/components/Leaderboard'
 import type { IQuizContext } from '@/contexts/quiz-context'
@@ -87,34 +88,34 @@ const builtinQuestions: QuestionType[] = [
   }
 ];
 
-// const builtinQuestions_: QuestionType[] = [{
-//   id: '1',
-//   question: 'What is the super hero with powers of a spider?',
-//   status: QuestionStatus.UNANSWERED,
-//   options: [
-//     {
-//       option: 'Superman',
-//       checked: false,
-//       ignore: false,
-//     },
-//     {
-//       option: 'Ironman',
-//       checked: false,
-//       ignore: false,
-//     },
-//     {
-//       option: 'Spiderman',
-//       checked: false,
-//       ignore: false,
-//     },
-//     {
-//       option: 'Batman',
-//       checked: false,
-//       ignore: false,
-//     },
-//   ],
-//   answer: 2,
-// }]
+const builtinQuestions_: QuestionType[] = [{
+  id: '1',
+  question: 'What is the super hero with powers of a spider?',
+  status: QuestionStatus.UNANSWERED,
+  options: [
+    {
+      option: 'Superman',
+      checked: false,
+      ignore: false,
+    },
+    {
+      option: 'Ironman',
+      checked: false,
+      ignore: false,
+    },
+    {
+      option: 'Spiderman',
+      checked: false,
+      ignore: false,
+    },
+    {
+      option: 'Batman',
+      checked: false,
+      ignore: false,
+    },
+  ],
+  answer: 2,
+}]
 
 function App() {
   const [form, setForm] = useState(initialForm);
@@ -194,7 +195,7 @@ function App() {
     }
   }, [questionsAnswered, correctAnswers]);
 
-  const ignoreOption = (_questionId: string, _option: number) => {
+  const ignoreOption = (questionId: string, option: number) => {
 
   }
 
@@ -309,7 +310,7 @@ function MainContent() {
   if (quizState === null)
     return <></>
 
-  const [showLeaderboard, _setShowLeaderboard] = quizState.leaderboardState;
+  const [showLeaderboard, setShowLeaderboard] = quizState.leaderboardState;
 
   if (showLeaderboard)
     return <Leaderboard />

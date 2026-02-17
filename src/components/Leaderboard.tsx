@@ -1,5 +1,6 @@
+import useLeaderboard from "@/hooks/useLeaderboard"
 import Button from "./Button";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import n8nAPI from "@/clients/n8n-client";
 import { nanoid } from "nanoid";
 import { type ScoreRecordType } from "@/types/stats-types";
