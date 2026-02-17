@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { useRef, useState } from "react"
 
 export default function APIKey() {
-  const [showInput, setShowInput] = useState(true);
+  const [showInput, setShowInput] = useState(false);
   const [inputFocused, setInputFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
